@@ -11,10 +11,11 @@ RUN wget -O localtonet-linux-x64.zip "https://localtonet.com/download/localtonet
     rm localtonet-linux-x64.zip
 
 # Asegurarse de que localtonet es ejecutable
-RUN chmod +x /app/localtonet
+COPY start_debian.sh .
+RUN chmod +x localtonet
 
 # Asegurarse de que start_debian.sh es ejecutable
-RUN chmod +x /app/start_debian.sh
+RUN chmod +x start_debian.sh
 
 # Establecer el script como punto de entrada
-CMD ["/app/start_debian.sh"]
+CMD ["start_debian.sh"]
